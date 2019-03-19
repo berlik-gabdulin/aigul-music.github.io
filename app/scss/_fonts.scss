@@ -1,4 +1,4 @@
 @import "_mixins/font-face";
 
-@include font-face("roboto-example", "../fonts/RobotoRegular/RobotoRegular");
-@include font-face("roboto-example", "../fonts/RobotoBold/RobotoBold", bold);
+@include font-face("Coco Gothic", "../fonts/coco_gothic/CocoGothic_trial");
+@include font-face("Playfair Display", "../fonts/Playfair_Display/PlayfairDisplay-Italic", bold);

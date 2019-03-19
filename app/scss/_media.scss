@@ -10,7 +10,9 @@
 
 // ≥992px
 @include media-breakpoint-down(md) {
-
+	.vw50 {
+		padding: 100% 0 0 0;
+	}
 }
 
 // ≥768px
@@ -43,5 +45,19 @@
 
 // ≤1200px
 @include media-breakpoint-up(xl) {
-	
+	.logo {
+		background: url('../img/Still025-color@2x.png') center center no-repeat;
+	}
+	.hi-img {
+		background: url('../img/Still074-color@2x.png') center center no-repeat;	
+	}
+	.tun {
+		background: url('../img/Still082-color@2x.png') center center no-repeat;	
+	}
+	.zhurek {
+		background: url('../img/Still048-color@2x.png') center center no-repeat;	
+	}
+	.pleasure {
+		background: url('../img/Still077-color@2x.png') center center no-repeat;	
+	}
 }
