@@ -10,6 +10,9 @@
 	background-color: $accent;
 	color: #fff;
 }
+b, strong {
+	font-weight: bold;
+}
 
 body {
 	font-size: 18px;
@@ -75,7 +78,7 @@ body {
 		max-width: 447px;
 	}
 }
-.nav {
+.mymusic {
 	position: absolute;
 	ul {
 		list-style-type: none;
@@ -118,7 +121,7 @@ body {
 .hi {
 	&-img {
 		background: url('../img/Still074-color.png') center center no-repeat;
-	background-size: cover;
+		background-size: cover;
 	}
 	h3 {
 		font-family: $accent-font;
@@ -141,46 +144,113 @@ body {
 	background: url('../img/Still077-color.png') center center no-repeat;
 	background-size: cover;
 }
+.youtube-play {
+	display: block;
+	// width: 100%;
+	max-width: 110px;
+	transform: scale(.9);
+	transition: .3s;
+	&:hover {
+		transform: scale(1);
+	}
+}
 .footer {
 	padding: 40px 15px;
-	.social {
-		display: flex;
-		justify-content: center;
-		a {
-			display: block;
-			padding: 0 10px;
-			opacity: .7;
-			transition: .3s;
-			&:hover {
-				opacity: 1;
-			}
-		}
-		img {
-			display: block;
-			width: 100%;
-			max-width: 40px;
-			height: auto;
-			filter: grayscale(1);
+}
+.social {
+	display: flex;
+	justify-content: center;
+	a {
+		display: block;
+		padding: 0 10px;
+		opacity: .7;
+		transition: .3s;
+		&:hover {
+			opacity: 1;
 		}
 	}
-	.copyright {
-		display: flex;
-		padding: 20px 15px 0;
-		justify-content: center;
-		a {
-			margin: 0 20px;
-			color: #433936;
-			text-decoration: underline;
-			&:hover{
-				text-decoration: none;
-			}
+	img {
+		display: block;
+		width: 100%;
+		max-width: 40px;
+		height: auto;
+		filter: grayscale(1);
+	}
+}
+.copyright {
+	display: flex;
+	padding: 20px 15px 0;
+	justify-content: center;
+	a {
+		margin: 0 20px;
+		color: #433936;
+		text-decoration: underline;
+		&:hover{
+			text-decoration: none;
 		}
 	}
 }
-
-b, strong {
-	font-weight: bold;
+.fullscreen {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		display: none;
+	&__inner {
+		display: flex;
+		width: 100vw;
+		height: 100vh;
+		justify-content: center;
+		align-items: center;
+		background: $bgcolor;
+		.mymusic {
+			position: static;
+		}
+		.nav {
+			font-weight: 700;
+		}
+		.copyright {
+			padding: 0 15px 20px;
+		}
+	}
 }
+.toggle-menu {
+	display: block;
+	position: fixed;
+	width: 20px;
+	height: 20px;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+	span {
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 2px;
+		background: #fff;
+		transition: .3s;
+		&.top {
+			top: 2px;
+		}
+		&.center {
+			top: 9px;
+		}
+		&.bottom {
+			bottom: 2px;
+		}
+	}
+	&:hover {
+		.top {
+			top: 0;
+		}
+		.bottom {
+			bottom: 0;
+		}
+	}
+	&.active {
 
+	}
+}
 
 @import "media"; // Always at the end
