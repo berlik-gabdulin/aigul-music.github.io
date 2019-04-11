@@ -5,7 +5,9 @@
 ::placeholder {
 	color: #666;
 }
-
+.averta {
+	font-family: 'AvertaDemoPE-Regular';
+}
 ::selection {
 	background-color: $accent;
 	color: #fff;
@@ -79,11 +81,18 @@ body {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	&.popup {
+		&:hover {
+			text-decoration: none;
+			p {
+				color: #ccc;
+			}
+		}
+	}
 }
 .container {
 	width: 100%;
 	max-width: 100%;
-	background-color: $bgcolor;
 }
 
 .logo {
@@ -136,20 +145,24 @@ body {
 }
 .hi {
 	&-img {
-		background: url('/img/Still074-color.png') center center no-repeat;
+		background: url('/img/about.jpg') center center no-repeat;
 		background-size: cover;
 	}
 	h3 {
 		font-family: $accent-font;
 		font-size: 45px;
 	}
+	span {
+		font-family: $accent-font;
+		font-size: 32px;
+	}
 	.center-block {
 		width: 90%;
 		max-width: 565px;
 	}
 }
-.tun {
-	background: url('/img/Still082-color.png') center center no-repeat;
+.bsod {
+	background: url('/img/videocover-bsod.jpg') center center no-repeat;
 	background-size: cover;
 }
 .zhurek {
@@ -162,6 +175,7 @@ body {
 }
 .youtube-play {
 	display: block;
+	margin: 0 auto;
 	// width: 100%;
 	max-width: 110px;
 	transform: scale(.9);
@@ -171,7 +185,7 @@ body {
 	}
 }
 .footer {
-	padding: 40px 15px;
+	padding: 40px 15px 0;
 }
 .social {
 	display: flex;
@@ -193,7 +207,7 @@ body {
 		filter: grayscale(1);
 	}
 }
-.copyright {
+.links {
 	display: flex;
 	padding: 20px 15px 0;
 	justify-content: center;
@@ -204,6 +218,17 @@ body {
 		&:hover{
 			text-decoration: none;
 		}
+	}
+}
+.copyright {
+	padding: 15px 0;
+	background: #555;
+	margin: 25px -15px 0;
+	p {
+		margin: 0;
+		color: #c5c5c5;
+		width: calc(100% + 30px);
+		text-align: center;
 	}
 }
 .fullscreen {
@@ -238,6 +263,7 @@ body {
 		}
 		.nav {
 			font-weight: 700;
+			text-transform: uppercase;
 		}
 		.copyright {
 			padding: 0 15px 20px;
@@ -320,13 +346,21 @@ body {
 		font-size: 0.8em;
 	}
 }
-.video-frame {
-	.fullscreen__inner {
-		padding: 0;
+.video {
+	&-frame {
+		.fullscreen__inner {
+			padding: 0;
+		}
+		&__frame {
+			width: 100vw;
+			height: 100vh;
+		}
 	}
-	&__frame {
-		width: 100vw;
-		height: 100vh;
+	&-title {
+		color: #fff;
+		font-size: 24px;
+		font-family: $accent-font-reg;
+		transition: .3s;
 	}
 }
 .cookies {
@@ -378,6 +412,34 @@ body {
 		}
 		&:hover {
 			color: #333;
+		}
+	}
+}
+.form {
+	background: #FDFDFD;
+	.container {
+		margin: 0 auto;
+		max-width: 1170px;
+	}
+	.button {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		height: 40px;
+		width: 100px;
+		padding: 0;
+		background: #333;
+		border-color: #333;
+		color: #FDFDFD;
+		&:hover {
+			background-color: #FDFDFD;
+			color: #333;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			height: 40px;
+			width: 100px;
+			padding: 0;
 		}
 	}
 }
