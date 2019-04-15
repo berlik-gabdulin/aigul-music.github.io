@@ -6,6 +6,10 @@
 // ≥1200px
 @include media-breakpoint-down(lg) {
 	
+	.form-row {
+		margin-left: 0;
+		margin-right: 0;
+	}
 }
 
 // ≥992px
@@ -28,16 +32,46 @@
 			padding: 10px 15px;
 		}
 	}
+	.video-title {
+		font-size: 18px;
+	}
+	.youtube-play {
+		max-width: 90px;
+	}
 }
 
 // ≥768px
 @include media-breakpoint-down(sm) {
-
+	
 }
 
 // ≥576px
 @include media-breakpoint-down(xs) {
+	.youtube-play {
+		max-width: 70px;
+	}
+	.video-title {
+		font-size: 16px;
+	}
+	.form {
+		&-row {
+			flex-direction: column;
+			.mc-field-group {
+				padding: 5px 15px;
+			}
+		}
 
+		.content__gdpr {
+			padding: 0 15px;	
+		}
+	}
+	.links {
+		flex-direction: column;
+		align-items: center;
+		a {
+			margin-bottom: 10px;
+		}
+	}
 }
 
 
