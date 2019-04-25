@@ -259,6 +259,9 @@ body {
 		}
 		.mymusic {
 			position: static;
+			.links {
+				margin-bottom: 30px;
+			}
 		}
 		.nav {
 			font-weight: 700;
@@ -335,6 +338,11 @@ body {
 			bottom: 8px;
 			transform: rotate(-135deg);
 		}
+		&.dark {
+			span {
+				background: #fff;
+			}
+		}
 	}
 }
 .policy {
@@ -348,11 +356,12 @@ body {
 .video {
 	&-frame {
 		.fullscreen__inner {
-			padding: 0;
+			padding: 40px 40px;
+			background: #000;
 		}
 		&__frame {
-			width: 100vw;
-			height: 100vh;
+			width: calc(100vw - 80px);
+			height: calc(100vh - 80px);
 		}
 	}
 	&-title {
@@ -361,6 +370,7 @@ body {
 		text-align: center;
 		font-family: $accent-font-reg;
 		transition: .3s;
+		font-family: "Coco Gothic";
 	}
 }
 .cookies {
@@ -472,6 +482,10 @@ body {
 	}
 	p {
 		font-size: 14px;
+	}
+	a {
+		color: #333;
+		text-decoration: underline;
 	}
 	input.av-checkbox[type='checkbox'] {
 		display: none;

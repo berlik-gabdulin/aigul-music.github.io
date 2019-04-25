@@ -11,6 +11,7 @@ $(function() {
 			$('body').removeClass('popup');
 			$('.fullscreen').removeClass('active');
 			$('.video-frame__frame').attr('src', '');
+			$('toggle-menu').removeClass('dark');
 			setTimeout(function() {
 				$('.fullscreen').fadeOut();
 			}, 500)
@@ -31,6 +32,7 @@ $(function() {
 		if ($(this).attr('data-src') !== null) {
 			var src = $(this).attr('data-src');
 			$('.video-frame__frame').attr('src', src);
+			$('.toggle-menu').addClass('dark');
 			console.log('src: ' + src);
 		}
 		console.log(target);
@@ -38,53 +40,43 @@ $(function() {
 		$('.fullscreen[id = "' + target + '"]').fadeIn().addClass('active').css('z-index', '2');
 	})
 
-	if (document.cookie != "cookiesAccept=true") {
-		setTimeout(function() {
-			$('.cookies').removeClass('hidden');
-		}, 3000);
-		$('.accept').click(function() {
-			$('.cookies').addClass('hidden');
-			document.cookie = "cookiesAccept=true";
-		})
+	function getCookie(name) {
+		var dc = document.cookie;
+		var prefix = name + "=";
+		var begin = dc.indexOf("; " + prefix);
+		if (begin == -1) {
+			begin = dc.indexOf(prefix);
+			if (begin != 0) return null;
+		}
+		else
+		{
+			begin += 2;
+			var end = document.cookie.indexOf(";", begin);
+			if (end == -1) {
+				end = dc.length;
+			}
+		}
+	    // because unescape has been deprecated, replaced with decodeURI
+	    //return unescape(dc.substring(begin + prefix.length, end));
+	    return decodeURI(dc.substring(begin + prefix.length, end));
+	} 
+
+	function doSomething() {
+		var myCookie = getCookie("cookiesAccept");
+
+		if (myCookie == null) {
+	        // do cookie doesn't exist stuff;
+	        setTimeout(function() {
+	        	$('.cookies').removeClass('hidden');
+	        }, 3000);
+	        $('.accept').click(function() {
+	        	$('.cookies').addClass('hidden');
+	        	document.cookie = "cookiesAccept=true";
+	        })
+	    }
+	    else {
+	        // do cookie exists stuff
+
+	    }
 	}
-
-	// var $form = $('#mc-embedded-subscribe-form');
-	// if ($form.length > 0) {
-	// 	$('form input[type="submit"]').bind('click', function (event) {
-	// 		if (event) event.preventDefault()
-	// 			register($form)
-	// 	})
-	// }
-
-	// function register($form) {
-	// 	$('#mc-embedded-subscribe').val('Sending...');
-	// 	$.ajax({
-	// 		type: $form.attr('method'),
-	// 		url: $form.attr('action'),
-	// 		data: $form.serialize(),
-	// 		cache: false,
-	// 		dataType: 'jsonp',
-	// 		contentType: 'application/json; charset=utf-8',
-	// 		error: function (err) { alert('Could not connect to the registration server. Please try again later.') },
-	// 		success: function (data) {
-	// 			$('#mc-embedded-subscribe').val('subscribe')
-	// 			if (data.result === 'success') {
-	// 			// Yeahhhh Success
-	// 			console.log(data.msg)
-	// 			$('#mce-EMAIL').css('borderColor', '#ffffff')
-	// 			$('#subscribe-result').css('color', 'rgb(53, 114, 210)')
-	// 			$('#subscribe-result').html('<p>Thank you for subscribing. We have sent you a confirmation email.</p>')
-	// 			$('#mce-EMAIL').val('')
-	// 		} else {
-	// 			// Something went wrong, do something to notify the user.
-	// 			console.log(data.msg)
-	// 			$('#mce-EMAIL').css('borderColor', '#ff8282')
-	// 			$('#subscribe-result').css('color', '#ff8282')
-	// 			$('#subscribe-result').html('<p>' + data.msg.substring(4) + '</p>')
-	// 		}
-	// 		console.log($form.serialize());
-	// 	}
-	// })
-	// };
-
 });
