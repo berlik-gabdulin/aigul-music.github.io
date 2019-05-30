@@ -11,7 +11,7 @@ $(function() {
 			$('body').removeClass('popup');
 			$('.fullscreen').removeClass('active');
 			$('.video-frame__frame').attr('src', '');
-			$('toggle-menu').removeClass('dark');
+			$('.toggle-menu, .lang a').removeClass('dark');
 			setTimeout(function() {
 				$('.fullscreen').fadeOut();
 			}, 500)
@@ -29,10 +29,10 @@ $(function() {
 	$('a.popup').click(function(e) {
 		e.preventDefault();
 		var target = $(this).attr('href');
-		if ($(this).attr('data-src') !== null) {
+		if ($(this).attr('data-src') !== undefined) {
 			var src = $(this).attr('data-src');
 			$('.video-frame__frame').attr('src', src);
-			$('.toggle-menu').addClass('dark');
+			$('.toggle-menu, .lang a').addClass('dark');
 			console.log('src: ' + src);
 		}
 		console.log(target);
@@ -79,4 +79,5 @@ $(function() {
 
 	    }
 	}
+	doSomething();
 });
